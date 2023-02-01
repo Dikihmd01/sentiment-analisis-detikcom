@@ -1,7 +1,3 @@
-import tensorflow as tf
-import numpy as np
-import os
-
 from flask import Flask, render_template, request, send_from_directory
 from keras.models import load_model
 import json
