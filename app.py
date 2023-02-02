@@ -28,7 +28,7 @@ def predict():
             pred_padded = pad_sequences(pred_sequence, maxlen=max_len)
             predicted = model.predict(pred_padded).round()
             scores = model.predict(pred_padded)
-            accuracy = max(scores[0])
+            accuracy = max(scores[0]) * 100
 
             print(sentences)
             print(predicted)
@@ -51,4 +51,6 @@ def predict():
             return render_template('index.html', data=data)
 
 if __name__ == '__main__':
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
     app.run()
